@@ -36,7 +36,7 @@ function addCar(newCar) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newCar)
+        body: JSON.stringify({car:newCar,func:1})
     })
         .then(response => response.json())
         .then(data => {
@@ -62,9 +62,12 @@ carForm.addEventListener('submit', event => {
 
 // Function to remove a car
 function removeCar(index) {
-    const carId = cars[index].id;
-    fetch(`http://localhost:3001/cars/${carId}`, {
-        method: 'DELETE'
+    fetch('/api/message', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({func:9,id:cars[index].id})
     })
         .then(response => response.json())
         .then(data => {
