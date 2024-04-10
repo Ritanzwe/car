@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("received");
                 console.log(data);
                 
-                cars = data.body;
+                cars = data;
                 carList.innerHTML = '';
-                data.body.forEach((car, index) => {
+                data.forEach((car, index) => {
                     const carCard = document.createElement('div');
                     carCard.classList.add('car-card');
                     carCard.innerHTML = `
