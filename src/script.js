@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('/api/message')
             .then(response => response.json())
             .then(data => {
+                console.log("received");
+                console.log(data);
+                
                 cars = data.body;
                 carList.innerHTML = '';
                 data.body.forEach((car, index) => {
