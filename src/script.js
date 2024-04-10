@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const carList = document.getElementById('carList');
     cars = [];
     loadCarsBtn.addEventListener('click', () => {
-        fetch('http://localhost:3001/cars')
+        fetch('/api/message')
             .then(response => response.json())
             .then(data => {
-                cars = data;
+                cars = data.body;
                 carList.innerHTML = '';
-                data.forEach((car, index) => {
+                data.body.forEach((car, index) => {
                     const carCard = document.createElement('div');
                     carCard.classList.add('car-card');
                     carCard.innerHTML = `
